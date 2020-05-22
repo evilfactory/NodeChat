@@ -53,6 +53,8 @@ socket.on("msg", function (data) {
 	console.log(data)
 })
 
+
+// while true go brrrrrrrrrrrrrrrrrr
 socket.on("sendhtml", function(data){
 
 	var divo = document.createElement("div");

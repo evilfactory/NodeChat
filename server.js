@@ -42,6 +42,7 @@ io.on('connection', function (socket) {
 	socket.on("authenticate", function (data) {
 		if (users[socket.id] != null) { return }
 
+		//dont trust client
 		if (data.name == null || data.color.r == null || data.color.g == null || data.color.b == null || data.name.toLowerCase() == "server") {
 			users[socket.id] = userData(socket.id, 255, 255, 255)
 		} else {
@@ -64,7 +65,7 @@ io.on('connection', function (socket) {
 		io.emit("msg", ReturnDataAndLog(users[socket.id].name + ": " + data.m, users[socket.id].color.r, users[socket.id].color.g, users[socket.id].color.b));
 
 		if(command == "!help"){
-			io.emit("msg", ReturnDataAndLog("Server: Commands: !help, !name and !color", 0, 255, 255))
+			io.emit("msg", ReturnDataAndLog("Server: Commands: !help, !name, !color and !html", 0, 255, 255))
 		}
 
 		if (command == "!name") {
@@ -73,12 +74,14 @@ io.on('connection', function (socket) {
 
 				console.log(users[socket.id].name.cyan + " tried to change name, but name is too long haha".red)
 			} else if(split.join(" ").length < 3) {
+				//not again....
 				io.emit("msg", ReturnDataAndLog("Server: Name too short", 0, 255, 255))
 
 				console.log(users[socket.id].name.cyan + " tried to change name, but name is too short haha".red)
 			
 			}else{
-
+				
+				// haha client go sad
 				if(split.join(" ").toLowerCase() == "server"){
 					io.emit("msg", ReturnDataAndLog("Server: No.", 255, 0, 0))
 					console.log("Server: No.".red)
@@ -98,7 +101,9 @@ io.on('connection', function (socket) {
 		}
 		if (command == "!color") {
 
+			// nobody will crash the server
 			if (split[0] == null || split[1] == null || split[2] == null) {
+				
 				console.log(users[socket.id].name.cyan + " tried to change color, but color is invalid".red)
 
 				io.emit("msg", ReturnDataAndLog("Server: Invalid color", 0, 255, 255))
