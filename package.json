@@ -1,0 +1,16 @@
+{
+  "name": "nodechat",
+  "version": "2.0.0",
+  "description": "haha chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "EvilFactory",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "socket.io": "^2.3.0"
+  }
+}

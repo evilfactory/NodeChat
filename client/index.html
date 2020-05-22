@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NodeChat</title>
+
+    <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+	<style type="text/css">
+		body{
+			font-family: arial;
+			font-size: 20px;
+			background-color:#3498db;
+		}
+
+		#msgcontainer{
+			height:700px;
+			width:100%;
+			border:1px solid #ccc;
+			font:16px/26px Georgia, Garamond, Serif;
+			overflow:auto;
+		}
+		#msgcontainer div{
+			background-color: gray;
+			margin-top: 5px;		
+		}
+
+		form{
+			margin-top: 20px;
+		}
+
+		#msgtosend{
+			padding-bottom: 10px;	
+			padding-top: 10px;
+			width: 80%;
+		}
+		#submit{
+			padding-right: 15px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="msgcontainer">
+		
+	</div>
+
+	<script type="text/javascript">
+
+
+
+
+	</script>
+
+	<div id="dmessage">
+	<form id="message" autocomplete="off">
+		<input type="text" name="Send" id="msgtosend">
+		<input type="submit" name="sub" id="submit" value="Send Message">
+	</form>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
